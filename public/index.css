@@ -1,0 +1,81 @@
+html,
+body {
+    padding: 0;
+    margin:  0;
+}
+
+body {
+    display: flex;
+}
+
+main {
+    flex-grow:       1;
+    height:          100vh;
+    display:         flex;
+    justify-content: center;
+    align-items:     center;
+}
+
+.techo {
+    background-color: burlywood;
+    min-width:        500px;
+    text-align:       center;
+    padding:          20px 20px 5px 20px;
+    position:         relative;
+    margin:           0;
+}
+
+.techo::before,
+.techo::after {
+    content:          '';
+    display:          block;
+    background-color: white;
+    height:           150%;
+    width:            10%;
+    position:         absolute;
+    bottom:           0;
+}
+
+.techo::before {
+    left:             -10%;
+    transform:        rotate(30deg);
+    transform-origin: right bottom;
+}
+
+.techo::after {
+    right:            -10%;
+    transform:        rotate(-30deg);
+    transform-origin: left bottom;
+}
+
+.interior {
+    text-align:       center;
+    margin:           0 10%;
+    background-color: #f69595;
+    display:          flex;
+    justify-content:  space-evenly;
+}
+
+.persona {
+    display:        flex;
+    flex-direction: column;
+    min-height:     200px;
+    padding:        10px 15px;
+    text-align:     center;
+}
+
+.persona .total {
+    margin-top: auto;
+}
+
+aside {
+    padding:    20px 5vw;
+    margin-top: 20%;
+    height:     auto;
+    max-width:  350px;
+}
+
+aside input {
+    width:   3rem;
+    padding: 0.3rem 0.75rem;
+}
