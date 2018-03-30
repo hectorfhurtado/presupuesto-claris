@@ -3,6 +3,13 @@
     const $interior      = document.querySelector ('.interior');
     const $inputPersonas = document.querySelector ('input#numero-personas');
     const personas       = [ 'Claris', 'Andrei', 'Gu' ];
+    const format         = new Intl.NumberFormat ('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+        currencyDisplay: 'symbol',
+    });
 
     $inputPersonas.addEventListener ('change', function ()
     {
@@ -53,15 +60,15 @@
     function getOtherElement (index, aporte, aporteIndividual)
     {
         const total = index === 1 ?
-            `<p class="total"><small><strong>Total: $${ aporte + aporteIndividual }</strong></small></p>` :
+            `<p class="total"><small><strong>Total: ${ format.format (aporte + aporteIndividual) }</strong></small></p>` :
             index === 2 ?
-            `<p class="total"><small><strong>Total: $${ aporte + aporteIndividual }</strong></small></p>` :
-            '';
+            `<p class="total"><small><strong>Total: ${ format.format (aporte + aporteIndividual) }</strong></small></p>` :
+            `<p class="total"><small><strong>Total: ${ format.format (aporte) }</strong></small></p>`;
 
         return `
             <div class="persona">
                 <p><strong>${ personas[index] ? personas[index] : `Persona ${ index + 1 }`}</strong></p>
-                <p>Aporte: <br>$${ aporte }</p>
+                <p>Aporte: <br>${ format.format (aporte) }</p>
                 ${ total }
             </div>
         `;
@@ -73,9 +80,9 @@
             <div class="persona">
                 <p><strong>${ personas[ index ]}</strong></p>
                 <div class="individual">
-                    <p>Aporte Nando: <br>$${ aporteIndividual }</p>
-                    <p>Aporte Gu: <br>$${ aporteIndividual }</p>
-                    <p>Aporte Andrei: <br>$${ aporteIndividual }</p>
+                    <p>Aporte Nando: <br>${ format.format (aporteIndividual) }</p>
+                    <p>Aporte Gu: <br>${ format.format (aporteIndividual) }</p>
+                    <p>Aporte Andrei: <br>${ format.format (aporteIndividual) }</p>
                 </div>
             </div>
         `;

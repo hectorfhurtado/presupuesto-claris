@@ -8,12 +8,24 @@ body {
     display: flex;
 }
 
+@media (max-width: 991px) {
+    body {
+        flex-direction: column;
+    }
+}
+
 main {
     flex-grow:       1;
     height:          100vh;
     display:         flex;
     justify-content: center;
     align-items:     center;
+}
+
+@media (max-width: 991px) {
+    main {
+        height: auto;
+    }
 }
 
 .techo {
@@ -23,6 +35,13 @@ main {
     padding:          20px 20px 5px 20px;
     position:         relative;
     margin:           0;
+}
+
+@media (max-width: 991px) {
+    .techo {
+        width:     100vw;
+        min-width: unset;
+    }
 }
 
 .techo::before,
@@ -56,6 +75,12 @@ main {
     justify-content:  space-evenly;
 }
 
+@media (max-width: 991px) {
+    .interior {
+        flex-wrap: wrap;
+    }
+}
+
 .persona {
     display:        flex;
     flex-direction: column;
@@ -64,8 +89,15 @@ main {
     text-align:     center;
 }
 
+@media (max-width: 991px) {
+    .persona {
+        border:    solid thin white;
+        flex-grow: 1;
+    }
+}
+
 .persona .total {
-    margin-top: auto;
+    margin-top: -10px;
 }
 
 aside {
@@ -73,6 +105,13 @@ aside {
     margin-top: 20%;
     height:     auto;
     max-width:  350px;
+}
+
+@media (max-width: 991px) {
+    aside {
+        margin-top: 5%;
+        max-width:  unset;
+    }
 }
 
 aside input {
