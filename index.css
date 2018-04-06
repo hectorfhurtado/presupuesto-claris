@@ -5,7 +5,8 @@ body {
 }
 
 body {
-    display: flex;
+    display:    flex;
+    overflow-x: hidden;
 }
 
 @media (max-width: 991px) {
